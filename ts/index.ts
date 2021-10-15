@@ -1,7 +1,13 @@
+//Funções
 function sum(a: number, b: number){
     return a + b;
 }
 
+
+
+
+
+//Interfaces
 interface Programador {
   
    nome: string;
@@ -17,7 +23,6 @@ interface Area extends Programador {
 
 }
 
-
 const p1: Programador = {
    nome: 'João',
    nivel: 'júnior',
@@ -31,5 +36,22 @@ const p2: Area = {
    tecnologias: 'HTML, CSS, JavaScript, React.js, TypeScript, Node, Vue JS',
    idade: 25,
    area: 'frontend'
+};
+
+
+
+
+//types
+interface BackEndPrecisa {
+   database: string
 }
 
+interface FrontEndPrecisa {
+   sass: boolean
+}
+
+type ProgramadorXp = BackEndPrecisa | FrontEndPrecisa; //pode ser & para juntar ao invés de |
+
+const p3: ProgramadorXp = {
+   database: 'MySql'
+}
