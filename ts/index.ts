@@ -41,6 +41,7 @@ const p2: Area = {
 
 
 
+
 //types
 interface BackEndPrecisa {
    database: string
@@ -58,6 +59,8 @@ const p3: ProgramadorXp = {
 
 
 
+
+
 //Input
 const input = document.getElementById('inputText') as HTMLInputElement;
 
@@ -68,4 +71,12 @@ input.addEventListener('input', (event) => {
 
 
 
+
+
+function adicionaItemArray<T>(arr: any[], valor: T){
+   return arr.map(() => valor);
+}
+
+
+adicionaItemArray([1, 2, 3], 1);
 
