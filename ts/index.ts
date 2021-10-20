@@ -8,7 +8,7 @@ function sum(a: number, b: number){
 
 
 //Interfaces
-interface Programador {
+interface IProgramador {
   
    nome: string;
    nivel: 'júnior' | 'pleno' | 'senior';
@@ -17,20 +17,20 @@ interface Programador {
 
 };
 
-interface Area extends Programador {
+interface IArea extends IProgramador {
 
     area: 'frontend' | 'backend' | 'fullstack'
 
 };
 
-const p1: Programador = {
+const p1: IProgramador = {
    nome: 'João',
    nivel: 'júnior',
    tecnologias: 'HTML, CSS, JavaScript',
    idade: 18
 };
 
-const p2: Area = {
+const p2: IArea = {
    nome: 'Josias',
    nivel: 'pleno',
    tecnologias: 'HTML, CSS, JavaScript, React.js, TypeScript, Node, Vue JS',
@@ -43,15 +43,15 @@ const p2: Area = {
 
 
 //types
-interface BackEndPrecisa {
+interface IBackEndPrecisa {
    database: string
 };
 
-interface FrontEndPrecisa {
+interface IFrontEndPrecisa {
    sass: boolean
 };
 
-type ProgramadorXp = BackEndPrecisa | FrontEndPrecisa; //pode ser & para juntar ao invés de |
+type ProgramadorXp = IBackEndPrecisa | IFrontEndPrecisa; //pode ser & para juntar ao invés de |
 
 const p3: ProgramadorXp = {
    database: 'MySql'
@@ -72,11 +72,62 @@ input.addEventListener('input', (event) => {
 
 
 
-
+//Generic Types
 function adicionaItemArray<T>(arr: any[], valor: T){
    return arr.map(() => valor);
 }
 
-
 adicionaItemArray([1, 2, 3], 1);
 
+
+
+
+interface IUser {
+   name: string;
+   email: string;
+}
+
+interface ICargo extends IUser{
+   cargo: 'administrador' | 'sub-administrador'
+}
+
+function veirficaSePossuiCargo(user: IUser | ICargo){
+   if('cargo' in user){
+     console.log(user.cargo);
+   }else{
+     console.log('não possui cargo');
+   }
+}
+
+const admin: ICargo = {
+   name: 'Fernando',
+   email: 'fernando@email.com',
+   cargo: 'administrador'
+};
+
+veirficaSePossuiCargo(admin);
+
+
+
+interface IEmpregados {
+   name: string,
+   idade: number,
+   salario: number,
+   aumento?: number
+};
+
+function VerificaAumentoFuncionario(funcionario: IEmpregados){
+   if(funcionario.aumento){
+      console.log('vai ter aumento no salário!!');
+   }else{
+      console.log('não vai ter aumento no salário');
+   }
+}
+
+const e1 : IEmpregados = {
+   name: 'João',
+   idade: 20,
+   salario: 2000
+};
+
+VerificaAumentoFuncionario(e1);
