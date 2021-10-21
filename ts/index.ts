@@ -81,7 +81,7 @@ adicionaItemArray([1, 2, 3], 1);
 
 
 
-
+//Condicionais
 interface IUser {
    name: string;
    email: string;
@@ -131,3 +131,31 @@ const e1 : IEmpregados = {
 };
 
 VerificaAumentoFuncionario(e1);
+
+
+
+
+
+interface IPessoa {
+   readonly nome: string,
+   readonly idade: number,
+   readonly todo?: string
+}
+
+
+type PessoaSomenteLeitura = {
+   readonly [K in keyof IPessoa]-?: IPessoa[K];
+}
+
+
+class Eu implements IPessoa{
+   nome;
+   idade;
+
+   constructor(nome, idade){
+       this.nome;
+       this.idade;
+   }
+}
+
+const pessoaEu = new Eu('Fernando', 20);
