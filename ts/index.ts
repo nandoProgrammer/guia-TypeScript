@@ -148,7 +148,7 @@ type PessoaSomenteLeitura = {
 }
 
 
-class Eu implements IPessoa{
+/*class Eu implements IPessoa{
    nome;
    idade;
 
@@ -156,6 +156,45 @@ class Eu implements IPessoa{
        this.nome;
        this.idade;
    }
-}
+}*
 
 const pessoaEu = new Eu('Fernando', 20);
+*/
+
+
+
+//Soma de Interfaces
+interface ITeste{
+   valor1: string,
+   valor2: string,
+}
+
+interface ITeste{
+   valor3: string
+}
+
+const Teste = {
+   valor1: 'teste1',
+   valor2: 'teste2',
+   valor3: 'teste3'
+}
+
+
+
+
+
+//Importando biblioteca
+import $ from 'jquery'
+
+$.fn.extend({
+   minhaFuncao(){
+      console.log('Hello World')
+   }
+})
+
+
+interface JQuery{
+   minhaFuncao(): void
+}
+
+$('body').minhaFuncao();
